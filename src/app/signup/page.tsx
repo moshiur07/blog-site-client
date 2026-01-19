@@ -3,7 +3,7 @@ import { SignupForm } from "@/components/signup-form";
 
 const SignUp = () => {
     return (
-        <div>
+        <div className="w-sm mx-auto pt-20">
             <SignupForm/>
         </div>
     );
