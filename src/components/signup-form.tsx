@@ -15,14 +15,17 @@ import {
   FieldLabel,
 } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"
+import { env } from "@/env";
 import { authClient } from "@/lib/auth-client"
 import Link from "next/link"
+
+const FRONTEND_URL = env.FRONTEND_URL;
 
 export function SignupForm({ ...props }: React.ComponentProps<typeof Card>) {
 const signUpWithGoogle = async()=>{
   const data = await authClient.signIn.social({
     provider:"google",
-    callbackURL:"http://localhost:3000"
+    callbackURL:FRONTEND_URL
   })
   console.log(data);
 }
