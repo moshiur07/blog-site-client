@@ -18,11 +18,11 @@ export async function proxy(request: NextRequest) {
     return NextResponse.redirect(new URL("/login", request.url));
   }
 
-  if (isAdmin && pathName == "/dashboard") {
+  if (isAdmin && pathName.startsWith("/dashboard")) {
     return NextResponse.redirect(new URL("/admin-dashboard", request.url));
   }
 
-  if (!isAdmin && pathName == "/admin-dashboard") {
+  if (!isAdmin && pathName.startsWith("/admin-dashboard")) {
     return NextResponse.redirect(new URL("/dashboard", request.url));
   }
 
