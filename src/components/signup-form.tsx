@@ -19,7 +19,7 @@ import { env } from "@/env";
 import { authClient } from "@/lib/auth-client"
 import Link from "next/link"
 
-const FRONTEND_URL = env.FRONTEND_URL;
+const FRONTEND_URL = env.NEXT_PUBLIC_FRONTEND_URL;
 
 export function SignupForm({ ...props }: React.ComponentProps<typeof Card>) {
 const signUpWithGoogle = async()=>{
