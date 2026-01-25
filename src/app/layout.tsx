@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/app/providers/themeProvider"
+import { ThemeProvider } from "@/app/providers/themeProvider";
+import { Toaster } from "@/components/ui/sonner";
 
 // ! fonts
 const geistSans = Geist({
@@ -14,14 +15,12 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-
 // ! meta data : logo and title of the page
 
 export const metadata: Metadata = {
   title: "Prisma Blog App",
   description: "Created By MRAHMAN inc.",
 };
-
 
 // ! Root layout
 export default function RootLayout({
@@ -35,15 +34,15 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased `}
       >
         <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-           >
-         {children}
-          </ThemeProvider>
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+          <Toaster richColors />
+        </ThemeProvider>
       </body>
     </html>
   );
-}    
-       
+}
